@@ -1,0 +1,91 @@
+<form [formGroup]="personForm" class="needs-validation" novalidate>
+    <div class="row mt-3">
+        <div class="col">
+            <div class="form-group">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" id="title" class="form-control" formControlName="title"
+                    [class.is-invalid]="personForm.get('title')?.invalid && personForm.get('title')?.touched">
+                <div *ngIf="personForm.get('title')?.invalid && personForm.get('title')?.touched"
+                    class="invalid-feedback">
+                    Title is required
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="firstName" class="form-label">First name</label>
+                <input type="text" id="firstName" class="form-control" formControlName="firstName"
+                    [class.is-invalid]="personForm.get('firstName')?.invalid && personForm.get('firstName')?.touched">
+                <div *ngIf="personForm.get('firstName')?.invalid && personForm.get('firstName')?.touched"
+                    class="invalid-feedback">
+                    First name is required
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="lastName" class="form-label">Last name</label>
+                <input type="text" id="lastName" class="form-control" formControlName="lastName"
+                    [class.is-invalid]="personForm.get('lastName')?.invalid && personForm.get('lastName')?.touched">
+                <div *ngIf="personForm.get('lastName')?.invalid && personForm.get('lastName')?.touched"
+                    class="invalid-feedback">
+                    Last name is required
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <div class="form-group">
+                <label for="dateOfBirth" class="form-label">Date of birth</label>
+                <input type="date" id="dateOfBirth" class="form-control" formControlName="dateOfBirth"
+                    [class.is-invalid]="personForm.get('dateOfBirth')?.invalid && personForm.get('dateOfBirth')?.touched">
+                <div *ngIf="personForm.get('dateOfBirth')?.invalid && personForm.get('dateOfBirth')?.touched"
+                    class="invalid-feedback">
+                    Please enter a valid date of birth
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-control" formControlName="email"
+                    [class.is-invalid]="personForm.get('email')?.invalid && personForm.get('email')?.touched">
+                <div *ngIf="personForm.get('email')?.invalid && personForm.get('email')?.touched"
+                    class="invalid-feedback">
+                    Please enter a valid email address
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <div class="form-group">
+                <label for="departmentId" class="form-label">Department</label>
+                <select id="departmentId" formControlName="departmentId" class="form-control">
+                    <option value="" disabled>Select department</option>
+                    <option *ngFor="let department of departments" [value]="department.id">
+                        {{ department.name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-4">
+        @if(!id) {
+            <button *ngIf="!id" type="button" class="btn btn-success" (click)="create()" [disabled]="personForm.invalid">
+                Create
+            </button>
+        } @else {
+            <button type="button" class="btn btn-primary" (click)="toggleEditMode()">
+                {{ isEditMode ? 'Cancel' : 'Edit' }}
+            </button>
+
+            <button type="button" class="btn btn-success" (click)="update()"
+                [disabled]="!isEditMode || personForm.invalid">
+                Save changes
+            </button>
+        }
+    </div>
+</form>

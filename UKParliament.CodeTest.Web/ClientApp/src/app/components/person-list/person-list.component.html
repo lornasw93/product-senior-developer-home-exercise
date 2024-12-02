@@ -1,0 +1,9 @@
+<ul class="list-group">
+  <li *ngFor="let person of persons" class="list-group-item list-group-item-action"
+    [ngClass]="{ 'active-person': person.id === selectedPersonId }" (click)="onPersonClick(person.id)">
+
+    <div class="initials">{{person.initials}}</div>
+
+    ({{person.title}}) {{person.lastName | uppercase}}, {{person.firstName}}
+  </li>
+</ul>

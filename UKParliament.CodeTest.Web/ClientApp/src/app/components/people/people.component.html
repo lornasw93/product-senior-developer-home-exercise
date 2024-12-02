@@ -1,0 +1,30 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">People directory</h1>
+    <p class="lead">
+      A directory where you can add and edit people.
+    </p>
+
+    <button type="button" class="btn btn-primary" (click)="toggleCreateMode()">
+      Add person
+    </button>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 bg-light vh-100">
+      <app-person-list (selectPerson)="onSelectPerson($event)"></app-person-list>
+    </div>
+
+    <div class="col-md-9">
+      @if (toggleCreate) {
+        <app-person-form></app-person-form>
+      } @else if (selectedPersonId && !toggleCreate) {
+        <app-person-form [id]="selectedPersonId"></app-person-form>
+      } @else {
+        <p class="text-center mt-5">Select a person to view details</p>
+      }
+    </div>
+  </div>
+</div>
