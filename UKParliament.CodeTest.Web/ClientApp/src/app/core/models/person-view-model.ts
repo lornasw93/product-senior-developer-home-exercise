@@ -1,5 +1,3 @@
-import { DepartmentViewModel } from "./department-view-model";
-
 export interface PersonViewModel {
   id: number;
   title: string;
@@ -7,7 +5,5 @@ export interface PersonViewModel {
   lastName: string;
   dateOfBirth: string;
   initials: string;
-
-  // departmentId: number;
-  // department: DepartmentViewModel;
+  departmentId: number;
 }

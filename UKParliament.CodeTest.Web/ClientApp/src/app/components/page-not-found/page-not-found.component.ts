@@ -15,5 +15,4 @@ export class PageNotFoundComponent {
   goDirectory(): void {
     this.router.navigate(['/people']);
   }
-
 }

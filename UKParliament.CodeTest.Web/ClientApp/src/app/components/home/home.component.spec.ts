@@ -1,5 +1,13 @@
+import { HomeComponent } from "./home.component";
+
 describe('HomeComponent', () => {
-  it('This is an example test for the HomeComponent', () => {
-    expect(true).toBeTruthy();
-  })
+  let component: HomeComponent;
+
+  beforeEach(() => {
+    component = new HomeComponent();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });  
 });
