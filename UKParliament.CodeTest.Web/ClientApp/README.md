@@ -25,6 +25,3 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-## Notes
-I've created a small person manager application that has basic functionality to add, edit and view persons. The application is pretty responsive. Having had more time, I would have enhanced the application with more features like deleting a person, search, pagination, and more. I also would have ensured that the left hand panel list of persons was reactive upon changing the data in the right hand panel. I would have also added more unit tests to the application. I would have also liked to enhanced both UI and logging in the backend too. I kept in the home component as utilised it as the first page a user will come on to, added a page not found component and then a few related ones in regards to persons/people.
